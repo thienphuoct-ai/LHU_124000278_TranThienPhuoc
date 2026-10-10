@@ -2,8 +2,8 @@
 using LHU_124000278_TranThienPhuoc.Api.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace LHU_124000278_TranThienPhuoc.Api.Controllers

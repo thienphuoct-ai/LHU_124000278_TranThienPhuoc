@@ -8,7 +8,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Controllers
 {
     [Route("api/lop-hoc-phan")]
     [ApiController]
-    public class LopHocPhanController
+    public class LopHocPhanController : ControllerBase
     {
         DatabaseContext db;
 
