@@ -4,7 +4,7 @@
 
 namespace LHU_124000278_TranThienPhuoc.Api.Migrations
 {
-    public partial class Huu : Migration
+    public partial class Phuoc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

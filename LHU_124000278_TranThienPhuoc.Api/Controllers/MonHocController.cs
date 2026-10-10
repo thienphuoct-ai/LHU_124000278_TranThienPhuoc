@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using LHU_124000278_TranThienPhuoc.Api.Database;
 using LHU_124000278_TranThienPhuoc.Api.Dto;
-using LHU_124000278_TranThienPhuoc.Api.IService;
+using LHU_124000278_TranThienPhuoc.Api.IServices;
 using Microsoft.EntityFrameworkCore;
 using LHU_124000278_TranThienPhuoc.Api.Database.Entities;
 

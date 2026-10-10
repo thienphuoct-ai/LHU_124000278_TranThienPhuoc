@@ -14,6 +14,8 @@ namespace LHU_124000278_TranThienPhuoc.Api.Database.Entities
         public int HocKy { get; set; }
         public int NamHoc { get; set; }
         public int SiSoToiDa { get; set; }
+        public DateTime? NgayBatDau { get; set; }
+        public DateTime? NgayKetThuc { get; set; }
         [ForeignKey(nameof(MonHocID))]
         public MonHocEntity MonHoc { get; set; } = null!;
         public ICollection<DangKyEntity> dangKys { get; set; } = new List<DangKyEntity>();

@@ -1,8 +1,6 @@
-﻿using System;
-
-public class Class1
+﻿namespace LHU_124000278_TranThienPhuoc.Api.Database.Seed
 {
-	public Class1()
-	{
-	}
+    public class MonHocSeed
+    {
+    }
 }

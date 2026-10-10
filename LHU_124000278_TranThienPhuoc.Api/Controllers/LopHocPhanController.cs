@@ -20,7 +20,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Controllers
         [HttpGet("get-all")]
         public async Task<ActionResult<List<LopHocPhanDto>>> GetAll()
         {
-            List<LopHocPhanDto> danhSachLopHocPhan = await db.lopHocPhan
+            List<LopHocPhanDto> danhSachLopHocPhan = await db.LopHocPhan
                 .Select(l => new LopHocPhanDto()
                 {
                     LopHocPhanID = l.LopHocPhanID,
@@ -47,7 +47,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Controllers
                 SiSoToiDa = req.SiSoToiDa
             };
 
-            await db.lopHocPhan.AddAsync(newLopHocPhan);
+            await db.LopHocPhan.AddAsync(newLopHocPhan);
             await db.SaveChangesAsync();
             return Ok();
         }
@@ -55,7 +55,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Controllers
         [HttpPut("edit")]
         public async Task<IActionResult> edit(LopHocPhanEditDto req)
         {
-            var lopHocPhan = await db.lopHocPhan.Where(l => l.LopHocPhanID == req.LopHocPhanID).FirstOrDefaultAsync();
+            var lopHocPhan = await db.LopHocPhan.Where(l => l.LopHocPhanID == req.LopHocPhanID).FirstOrDefaultAsync();
             if (lopHocPhan == null)
             {
                 return NotFound();
@@ -74,13 +74,13 @@ namespace LHU_124000278_TranThienPhuoc.Api.Controllers
         [HttpDelete("delete")]
         public async Task<IActionResult> delete(int id)
         {
-            var lopHocPhan = await db.lopHocPhan.Where(l => l.LopHocPhanID == id).FirstOrDefaultAsync();
+            var lopHocPhan = await db.LopHocPhan.Where(l => l.LopHocPhanID == id).FirstOrDefaultAsync();
             if (lopHocPhan == null)
             {
                 return NotFound();
             }
 
-            db.lopHocPhan.Remove(lopHocPhan);
+            db.LopHocPhan.Remove(lopHocPhan);
             await db.SaveChangesAsync();
             return Ok();
         }
