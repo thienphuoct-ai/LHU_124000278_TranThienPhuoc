@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+
 namespace LHU_124000278_TranThienPhuoc.Api
 {
-    public class GlobalExceptionHendler : IExceptionHandler
+    public class GlobalExceptionHandler : IExceptionHandler
     {
-        private readonly ILogger<GlobalExceptionHendler> _logger;
-        public GlobalExceptionHendler(ILogger<GlobalExceptionHendler> logger)
+        private readonly ILogger<GlobalExceptionHandler> _logger;
+        public GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
         {
             _logger = logger;
         }

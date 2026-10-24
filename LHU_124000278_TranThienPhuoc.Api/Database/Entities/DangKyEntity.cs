@@ -10,13 +10,13 @@ namespace LHU_124000278_TranThienPhuoc.Api.Database.Entities
         [Key]
         public int DangKyId { get; set; }
         public int SinhVienId { get; set; }
-        public int LopHocPhanId { get; set; }
+        public int LopHocPhanID { get; set; }
         public DateTime NgayDangKy { get; set; }
         [StringLength(50)]
         public string? TrangThai { get; set; }
         [ForeignKey(nameof(SinhVienId))]
         public SinhVienEntity SinhVien { get; set; } = null!;
-        [ForeignKey(nameof(LopHocPhanId))]
+        [ForeignKey(nameof(LopHocPhanID))]
         public LopHocPhanEntity LopHocPhan { get; set; } = null!;
     }
 }

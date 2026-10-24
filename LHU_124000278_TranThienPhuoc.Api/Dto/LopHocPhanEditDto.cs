@@ -1,4 +1,5 @@
-﻿namespace LHU_124000278_TranThienPhuoc.Api.Dto
+﻿using System.ComponentModel.DataAnnotations;
+namespace LHU_124000278_TranThienPhuoc.Api.Dto
 {
     public class LopHocPhanEditDto
     {

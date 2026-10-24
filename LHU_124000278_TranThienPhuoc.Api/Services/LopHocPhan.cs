@@ -19,8 +19,8 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
             var danhSachLopHocPhan = await db.LopHocPhan
                 .Select(l => new LopHocPhanDto()
                 {
-                    LopHocPhanId = l.LopHocPhanId,
-                    MonHocId = l.MonHocId,
+                    LopHocPhanID = l.LopHocPhanID,
+                    MonHocID = l.MonHocID,
                     MaLopHP = l.MaLopHP,
                     HocKy = l.HocKy,
                     NamHoc = l.NamHoc,
@@ -43,7 +43,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
             }
 
             bool tonTaiMonHoc = await db.MonHoc
-                .Where(m => m.MonHocId == req.MonHocId)
+                .Where(m => m.MonHocID == req.MonHocID)
                 .AnyAsync();
 
             if (!tonTaiMonHoc)
@@ -53,7 +53,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
 
             LopHocPhanEntity newLopHocPhan = new LopHocPhanEntity()
             {
-                MonHocId = req.MonHocId,
+                MonHocID = req.MonHocID,
                 MaLopHP = req.MaLopHP,
                 HocKy = req.HocKy,
                 NamHoc = req.NamHoc,
@@ -72,7 +72,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
         public async Task<bool> EditAsync(LopHocPhanEditDto req)
         {
             var lopHocPhan = await db.LopHocPhan
-                .Where(l => l.LopHocPhanId == req.LopHocPhanId)
+                .Where(l => l.LopHocPhanID == req.LopHocPhanID)
                 .FirstOrDefaultAsync();
 
             if (lopHocPhan == null)
@@ -81,7 +81,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
             }
 
             bool tonTaiMaLopHP = await db.LopHocPhan
-                .Where(l => l.MaLopHP == req.MaLopHP && l.LopHocPhanId != req.LopHocPhanId)
+                .Where(l => l.MaLopHP == req.MaLopHP && l.LopHocPhanID != req.LopHocPhanID)
                 .AnyAsync();
 
             if (tonTaiMaLopHP)
@@ -90,7 +90,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
             }
 
             bool tonTaiMonHoc = await db.MonHoc
-                .Where(m => m.MonHocId == req.MonHocId)
+                .Where(m => m.MonHocID == req.MonHocID)
                 .AnyAsync();
 
             if (!tonTaiMonHoc)
@@ -98,7 +98,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
                 return false;
             }
 
-            lopHocPhan.MonHocId = req.MonHocId;
+            lopHocPhan.MonHocID = req.MonHocID;
             lopHocPhan.MaLopHP = req.MaLopHP;
             lopHocPhan.HocKy = req.HocKy;
             lopHocPhan.NamHoc = req.NamHoc;
@@ -111,10 +111,10 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
             return true;
         }
 
-        public async Task<bool> DeleteAsync(int lopHocPhanId)
+        public async Task<bool> DeleteAsync(int LopHocPhanID)
         {
-            bool tonTaiDangKy = await db.DangKies
-                .Where(d => d.LopHocPhanId == lopHocPhanId)
+            bool tonTaiDangKy = await db.dangKy
+                .Where(d => d.LopHocPhanID == LopHocPhanID)
                 .AnyAsync();
 
             if (tonTaiDangKy)
@@ -123,7 +123,7 @@ namespace LHU_124000278_TranThienPhuoc.Api.Services
             }
 
             var lopHocPhan = await db.LopHocPhan
-                .Where(l => l.LopHocPhanId == lopHocPhanId)
+                .Where(l => l.LopHocPhanID == LopHocPhanID)
                 .FirstOrDefaultAsync();
 
             if (lopHocPhan == null)
